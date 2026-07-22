@@ -131,7 +131,7 @@ The frontend runs on http://localhost:3000 and talks to the backend via `REACT_A
 ---
 
 ## Team & attribution
-Jiya — frontend & citizen flow; 
-Kanhaiya — backend & LLM integration; Harshada — graph/geospatial modules
+1)Jiya — frontend & citizen flow; 
+2)Kanhaiya — backend & LLM integration; 3)Harshada — graph/geospatial modules
 
 
