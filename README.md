@@ -131,8 +131,8 @@ The frontend runs on http://localhost:3000 and talks to the backend via `REACT_A
 ---
 
 ## Team & attribution
-Kanhaiya Bobade
-Jiya Sharma
-Harshada Gore 
+-1)Kanhaiya Bobade
+-2)Jiya Sharma
+-3)Harshada Gore 
 
 
