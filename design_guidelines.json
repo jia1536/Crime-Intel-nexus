@@ -1,0 +1,120 @@
+{
+  "theme_strategy": {
+    "concept": "Trust Center & Security Operations (Dual Theme)",
+    "description": "A serious, trustworthy 'command centre' aesthetic for law enforcement (Dark mode), contrasted with an approachable, safe off-white theme for citizens (Light mode). Combines high-density dashboard layouts with cinematic, glowing focal points for risk markers.",
+    "archetype": "ARCHETYPE 4: SWISS & HIGH-CONTRAST mixed with COMMAND CENTER TACTICAL",
+    "forbidden_colors": ["#7351B7", "#1B93A4"]
+  },
+  "colors": {
+    "dark_theme": {
+      "background": "#0B1120",
+      "card_bg": "#111827",
+      "surface_glass": "rgba(11, 17, 32, 0.6)",
+      "border": "rgba(255, 255, 255, 0.1)",
+      "text_primary": "#F8FAFC",
+      "text_secondary": "#94A3B8"
+    },
+    "light_theme": {
+      "background": "#F8FAFC",
+      "card_bg": "#FFFFFF",
+      "surface_glass": "rgba(255, 255, 255, 0.7)",
+      "border": "rgba(0, 0, 0, 0.05)",
+      "text_primary": "#0B1120",
+      "text_secondary": "#475569"
+    },
+    "semantic": {
+      "primary": "#3B82F6",
+      "warning": "#F59E0B",
+      "danger": "#EF4444",
+      "success": "#10B981"
+    }
+  },
+  "typography": {
+    "primary_font": "Manrope, sans-serif",
+    "secondary_font": "Inter, sans-serif",
+    "rules": [
+      "Use Manrope for all headings with tracking-tight (-0.02em to -0.04em).",
+      "Use Inter for body text and dense data tables.",
+      "Never use Inter for H1/H2.",
+      "Headings should not exceed text-5xl on desktop (fluid scaling).",
+      "Labels and overlines must be Uppercase, tracking-widest, and text-xs."
+    ]
+  },
+  "surfaces_and_shapes": {
+    "radii": "rounded-xl for cards, rounded-full for buttons/pills.",
+    "glassmorphism": "backdrop-blur-xl combined with surface_glass color and 1px inner border. Use heavily on sticky navbars and detail drawers.",
+    "shadows": "Subtle ambient shadows in Light Mode. In Dark Mode, replace soft drop shadows with 'inner glow' borders (e.g., ring-1 ring-white/10).",
+    "cards": "Card-based layout. Use 1px subtle borders. Do not use fully transparent cards if content is under them."
+  },
+  "layouts_and_grids": {
+    "dashboard_grid": "High Density Grid. grid-cols-1 md:grid-cols-3 lg:grid-cols-4 or 12-col bento. Tight gaps (gap-4 or gap-6). Cards must use h-full to match neighbors.",
+    "citizen_grid": "Tetris Grid. grid-cols-1 md:grid-cols-12. Generous padding (p-8 to p-12). Asymmetrical overlapping for landing page."
+  },
+  "components_strategy": {
+    "navbar": "Glassmorphism header with z-50. Include role-switcher dropdown (Citizen / Officer / Command Centre).",
+    "chat_interface": "Citizen Fraud Shield: Friendly rounded-2xl message bubbles. AI risk verdict card uses Manrope font and semantic colors. EN/HI toggle pill.",
+    "scam_analyzer": "Officer View: Two-column layout. Transcript on left, inline highlights with bg-danger/20 or bg-warning/20. MHA Draft Panel on right.",
+    "network_graph": "Use react-force-graph-2d or react-force-graph-3d. Nodes colored by risk level. Panel overlay for cluster details.",
+    "geospatial_map": "Leaflet + OSM with Dark tile layer (CartoDB Dark Matter). Glowing pulsating markers (using CSS ping animation) for high-risk red zones.",
+    "alerts_feed": "Live toast feed every 20s. Use Sonner library positioned at bottom-right.",
+    "status_pills": "Use flex, items-center, gap-2, rounded-full, px-3, py-1, text-xs, font-medium."
+  },
+  "visual_enhancers": {
+    "animations": [
+      "Pulsing glow on high-risk markers: animate-pulse combined with drop-shadow-[0_0_8px_rgba(239,68,68,0.8)].",
+      "Skeleton loaders: animate-pulse on rounded-xl slate-800 blocks (minimum 1-2s delay for realism).",
+      "Animated verdict reveals: Framer Motion slide-up and fade-in."
+    ],
+    "textures": "In Command Centre, apply a subtle CSS noise overlay (opacity 2-3%) to kill digital flatness."
+  },
+  "image_urls": {
+    "hero_scam_background": {
+      "url": "https://images.unsplash.com/photo-1590501949668-2442efd4d3d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwxfHxzY2FtbWVyJTIwb24lMjBwaG9uZSUyMGRhcmslMjByb29tfGVufDB8fHx8MTc4NDY1MzU1NXww&ixlib=rb-4.1.0&q=85",
+      "description": "Scammer in dark room. Use for Citizen landing page risk-awareness section with a heavy dark gradient overlay."
+    },
+    "city_map_dark": {
+      "url": "https://images.unsplash.com/photo-1700574005887-47134ebde2ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHwxfHxjaXR5JTIwbWFwJTIwZGFyayUyMG1vZGV8ZW58MHx8fHwxNzg0NjUzNTY4fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Dark mode city aerial. Can be used as a background or placeholder for map section."
+    },
+    "currency_sample": {
+      "url": "https://images.unsplash.com/photo-1509603148757-f2a393f18afa?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjBjdXJyZW5jeSUyMG5vdGV8ZW58MHx8fHwxNzg0NjUzNTY5fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Indian currency note for the Counterfeit Identification Agent view."
+    },
+    "network_graph_bg": {
+      "url": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwxfHxuZXR3b3JrJTIwZ3JhcGglMjBkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwwfHx8fDE3ODQ2NTM1NzZ8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Data visualization background if a fallback is needed before rendering canvas graph."
+    },
+    "officer_avatar": {
+      "url": "https://images.unsplash.com/photo-1690264534541-31a609bceaf3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHxwb2xpY2UlMjBvZmZpY2VyJTIwbG9va2luZyUyMGF0JTIwY29tcHV0ZXIlMjBzY3JlZW58ZW58MHx8fHwxNzg0NjUzNTc1fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Law enforcement officer avatar / profile picture."
+    }
+  },
+  "testing": {
+    "attributes": "All interactive elements (buttons, nav items, dropdowns) MUST include 'data-testid' in kebab-case format."
+  },
+  "instructions_to_main_agent": [
+    "Install and use 'lucide-react' for all icons.",
+    "Install 'sonner' for toast notifications.",
+    "Implement a robust 'dark' class toggling strategy on the root element. Officer/Command is strictly Dark Mode, Citizen is strictly Light Mode.",
+    "For the Force Network Graph, consider 'react-force-graph-2d' to maintain performance, or 'recharts' if building static data views.",
+    "For Leaflet, use 'react-leaflet' and apply a dark tile provider (e.g., CartoDB Dark Matter).",
+    "Avoid standard Bootstrap/Tailwind centered layouts. Keep forms and headers left-aligned.",
+    "For buttons, use pill-shaped (rounded-full) or completely rounded-xl corners with smooth transitions, no default shadow.",
+    "Do NOT use 'transition: all'. Explicitly define transition properties (e.g., transition-colors, transition-transform).",
+    "Ensure 'Inter' is NOT used for headings. Stick to 'Manrope' for H1-H4."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. Avoid this.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition. Eg: transition: all. Always add transitions for specific interactive elements like button, input excluding transforms.",
+    "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style.",
+    "NEVER: use AI assistant Emoji characters like \ud83e\udd16\ud83e\udde0\ud83d\udcad\ud83d\udca1\ud83d\udd2e\ud83c\udfaf etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, entrance animations.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Main agent relies on provided image URLs. Missing categories = main agent will use placeholder text which is FORBIDDEN."
+  ]
+}
