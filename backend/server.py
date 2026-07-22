@@ -19,7 +19,7 @@ load_dotenv(ROOT_DIR / '.env')
 
 MONGO_URL = os.environ['MONGO_URL']
 DB_NAME = os.environ['DB_NAME']
-EMERGENT_LLM_KEY = os.environ.get('EMERGENT_LLM_KEY', '')
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
 client = AsyncIOMotorClient(MONGO_URL)
 db = client[DB_NAME]
@@ -66,7 +66,7 @@ class IntelligenceReportIn(BaseModel):
 # ---------- LLM HELPERS ----------
 def _new_chat(system: str) -> LlmChat:
     return LlmChat(
-        api_key=EMERGENT_LLM_KEY,
+        api_key=GEMINI_API_KEY,
         session_id=str(uuid.uuid4()),
         system_message=system,
     ).with_model("gemini", "gemini-3-flash-preview")
