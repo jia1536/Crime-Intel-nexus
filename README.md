@@ -30,7 +30,7 @@ Every case action (status change, assignee change, seizure log) writes to an aud
 ---
 
 ## Live demo
-Frontend: crime-intel-nexus-ol0g5zqn6-jia1536s-projects.vercel.app
+Frontend: [crime-intel-nexus-ol0g5zqn6-jia1536s-projects.vercel.app](https://crime-intel-nexus.vercel.app/)
 
 
 Seeded on first load: 17 scam checks · 12 counterfeit records · 27-node/43-edge fraud graph across 3 rings · ~35 geospatial hotspots (Delhi/Mumbai/Bengaluru/Pune) · 12 cases · 5 alerts.
