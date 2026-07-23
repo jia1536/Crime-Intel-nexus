@@ -12,7 +12,7 @@ SentinelGrid is a single platform with three surfaces, one shared case system an
 
 | Role | What they get |
 |------|---------------|
-| **Citizen** | A chat-style Fraud Shield (English + Hindi) that verifies a suspicious call, message or payment request in seconds — verdict, confidence, red-flag signals, one-tap NCRB report. |
+| **Citizen** | A chat-style Fraud Shield (English + Hindi) that verifies a suspicious call, message or payment request in seconds verdict, confidence, red-flag signals, one-tap NCRB report. |
 | **Officer** | Digital Arrest scam transcript analyzer with inline phrase highlights + MHA advisory draft, a single-note counterfeit currency verifier, a bulk note scanner (up to 12 notes at once), and the shared case table. |
 | **Command Centre Admin** | Live KPI dashboard, WebSocket alert feed, force-directed fraud-ring graph with LLM intelligence reports (PDF export), geospatial hotspot map with patrol priority ranking, and a Recharts analytics tab. |
 
