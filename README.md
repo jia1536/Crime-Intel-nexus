@@ -1,6 +1,6 @@
 # SentinelGrid
 
-**AI-powered Digital Public Safety Intelligence Platform for citizens, officers and command centres — detecting digital fraud, counterfeit currency and organised scam networks in real time.**
+**AI-powered Digital Public Safety Intelligence Platform for citizens, officers and command centres detecting digital fraud, counterfeit currency and organised scam networks in real time.**
 
 Built for hackathon judging. Fully seeded, fully live, one cohesive command surface.
 
