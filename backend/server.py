@@ -9,7 +9,8 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Any
 from datetime import datetime, timezone, timedelta
 
-from emergentintegrations.llm.chat import LlmChat, UserMessage, ImageContent
+from google import genai
+from google.genai import types
 
 from seed_data import SEED_SCAM_CHECKS, SEED_COUNTERFEIT, SEED_GRAPH, SEED_HOTSPOTS, SEED_CASES, SEED_ALERTS, SAMPLE_TRANSCRIPTS
 from auth_module import build_auth_router, ensure_users, decode_token
@@ -64,12 +65,8 @@ class IntelligenceReportIn(BaseModel):
 
 
 # ---------- LLM HELPERS ----------
-def _new_chat(system: str) -> LlmChat:
-    return LlmChat(
-        api_key=GEMINI_API_KEY,
-        session_id=str(uuid.uuid4()),
-        system_message=system,
-    ).with_model("gemini", "gemini-3-flash-preview")
+
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 
 def _extract_json(txt: str) -> dict:
@@ -77,29 +74,52 @@ def _extract_json(txt: str) -> dict:
         return json.loads(txt)
     except Exception:
         pass
+
     m = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", txt, re.S)
     if m:
-        try: return json.loads(m.group(1))
-        except Exception: pass
+        try:
+            return json.loads(m.group(1))
+        except Exception:
+            pass
+
     m = re.search(r"(\{.*\})", txt, re.S)
     if m:
-        try: return json.loads(m.group(1))
-        except Exception: pass
+        try:
+            return json.loads(m.group(1))
+        except Exception:
+            pass
+
     return {}
 
 
 async def _llm_json(system: str, user_text: str, image_b64: Optional[str] = None) -> dict:
-    chat = _new_chat(system)
-    file_contents = [ImageContent(image_base64=image_b64)] if image_b64 else None
-    msg = UserMessage(text=user_text, file_contents=file_contents) if file_contents else UserMessage(text=user_text)
     try:
-        resp = await chat.send_message(msg)
-        raw = resp if isinstance(resp, str) else str(resp)
-        return _extract_json(raw)
-    except Exception as e:
-        logger.error(f"LLM call failed: {e}")
-        return {}
+        prompt = f"{system}\n\n{user_text}"
 
+        if image_b64:
+            image_bytes = base64.b64decode(image_b64)
+
+            response = client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=[
+                    prompt,
+                    types.Part.from_bytes(
+                        data=image_bytes,
+                        mime_type="image/jpeg"
+                    )
+                ]
+            )
+        else:
+            response = client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt
+            )
+
+        return _extract_json(response.text)
+
+    except Exception as e:
+        logger.error(f"Gemini Error: {e}")
+        return {}
 
 # ---------- OPTIONAL AUTH (soft) ----------
 async def optional_user(authorization: Optional[str] = Header(None)) -> Optional[dict]:
