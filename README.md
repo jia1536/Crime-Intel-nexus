@@ -20,22 +20,56 @@ Every case action (status change, assignee change, seizure log) writes to an aud
 
 ---
 
+# AI Capabilities
+
+SentinelGrid uses **Google Gemini** for intelligent analysis.
+
+AI is used for:
+
+- Fraud Detection
+- Scam Conversation Analysis
+- Counterfeit Currency Verification
+- Intelligence Report Generation
+- Risk Assessment
+- Crime Pattern Analysis
+
+---
+
 ## Stack
 
 - **Frontend**: React (CRA) · TailwindCSS · shadcn/ui · Sonner · Lucide · react-force-graph-2d · react-leaflet · Recharts · jsPDF
 - **Backend**: FastAPI · MongoDB (motor) · WebSocket · JWT + bcrypt
-- **AI**: Gemini 3 Flash via `emergentintegrations` (text + vision) with a rules-based fallback so demos never break
-- **Maps**: OpenStreetMap (CARTO Dark tiles), no API key required
+- **AI**: Google Gemini API
+- **Database**: MongoDB Atlas
+- **Maps**: OpenStreetMap (CARTO Dark tiles), no API key required, React Leaflet
 
 ---
 
 ## Live demo
 Frontend: [crime-intel-nexus-ol0g5zqn6-jia1536s-projects.vercel.app](https://crime-intel-nexus.vercel.app/)
-
-
+Backend API: https://crime-intel-nexus.onrender.com
+API Documentation: https://crime-intel-nexus.onrender.com/docs
 Seeded on first load: 17 scam checks · 12 counterfeit records · 27-node/43-edge fraud graph across 3 rings · ~35 geospatial hotspots (Delhi/Mumbai/Bengaluru/Pune) · 12 cases · 5 alerts.
 
 ---
+
+# System Architecture
+
+```text
+                 React Frontend (Vercel)
+                         │
+                         │ REST API
+                         ▼
+                FastAPI Backend (Render)
+                         │
+          ┌──────────────┴──────────────┐
+          │                             │
+     MongoDB Atlas               Google Gemini AI
+          │                             │
+          └──────────────┬──────────────┘
+                         │
+                  WebSocket Live Alerts
+```
 
 ## Demo accounts
 
@@ -113,6 +147,21 @@ The frontend runs on http://localhost:3000 and talks to the backend via `REACT_A
 
 ---
 
+# Deployment
+
+## Frontend
+- Vercel
+
+## Backend
+- Render
+
+## Database
+- MongoDB Atlas
+
+## AI
+- Google Gemini API
+
+---
 ## Security notes
 
 - Passwords are bcrypt-hashed in MongoDB. JWTs are signed with `HS256` using `JWT_SECRET`.
@@ -129,9 +178,34 @@ The frontend runs on http://localhost:3000 and talks to the backend via `REACT_A
 - Manrope headings, Inter body, JetBrains Mono for identifiers.
 
 ---
+# Team
 
-## Team & attribution
-1)Jiya — frontend & citizen flow; 
-2)Kanhaiya — backend & LLM integration; 3)Harshada — graph/geospatial modules
+| Member | Responsibility |
+|----------|---------------|
+| **Jiya Sharma** | Frontend Development, UI/UX, Citizen Portal |
+| **Kanhaiya** | Backend Development, API Integration, Authentication, AI |
+| **Harshada** | Crime Analytics, Fraud Graph, Geospatial Intelligence |
 
+---
 
+# License
+
+This project was developed for educational and hackathon purposes.
+
+---
+
+# Acknowledgements
+
+- Google Gemini API
+- FastAPI
+- MongoDB Atlas
+- React
+- Tailwind CSS
+- React Leaflet
+- OpenStreetMap
+- Render
+- Vercel
+
+---
+
+## If you found this project interesting, consider giving it a star on GitHub!
