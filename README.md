@@ -23,9 +23,7 @@ Every case action (status change, assignee change, seizure log) writes to an aud
 # AI Capabilities
 
 SentinelGrid uses **Google Gemini** for intelligent analysis.
-
 AI is used for:
-
 - Fraud Detection
 - Scam Conversation Analysis
 - Counterfeit Currency Verification
@@ -47,8 +45,11 @@ AI is used for:
 
 ## Live demo
 Frontend: [crime-intel-nexus-ol0g5zqn6-jia1536s-projects.vercel.app](https://crime-intel-nexus.vercel.app/)
+
 Backend API: https://crime-intel-nexus.onrender.com
+
 API Documentation: https://crime-intel-nexus.onrender.com/docs
+
 Seeded on first load: 17 scam checks · 12 counterfeit records · 27-node/43-edge fraud graph across 3 rings · ~35 geospatial hotspots (Delhi/Mumbai/Bengaluru/Pune) · 12 cases · 5 alerts.
 
 ---
@@ -149,17 +150,10 @@ The frontend runs on http://localhost:3000 and talks to the backend via `REACT_A
 
 # Deployment
 
-## Frontend
-- Vercel
-
-## Backend
-- Render
-
-## Database
-- MongoDB Atlas
-
-## AI
-- Google Gemini API
+- **Frontend**: Vercel
+- **Backend**: Render
+- **Database**:MongoDB Atlas
+- **AI**: Google Gemini API
 
 ---
 ## Security notes
